@@ -6,7 +6,7 @@ const Notification = require('./models/Notification')
 router.get('/', async (req, res) => {
     const notifs = await Notification.find()
     const filter = notifs.map((notif) => {
-        return { 'date': notif.sendDate, 'message': notif.notifBody }
+        return { 'date': notif.date, 'message': notif.notif }
     })
     res.send(filter)
 })

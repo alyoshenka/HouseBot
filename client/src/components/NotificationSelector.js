@@ -13,7 +13,7 @@ import DatePicker from './DatePicker'
 
 const NotificationSelector = () => {
     const [message, setMessage] = useState(null)
-    const [date, setDate] = useState(null)
+    const [date, setDate] = useState(new Date())
 
     const passDateUpwards = (newDate) => {
         setDate(newDate)
@@ -35,7 +35,7 @@ const NotificationSelector = () => {
     }
     
     return (
-        <Box sx={{ m: 10, width: '31vw', display: 'flex', justifyContent: 'space-around', flexDirection: 'column'}}>
+        <Box sx={{ width: '31vw', display: 'flex', justifyContent: 'space-around', flexDirection: 'column'}}>
             <DatePicker passDate={passDateUpwards} />
             <TextField onChange={handleMessageChange} sx={{ m: 3}} inputProps={{ maxLength: 24 }}label="Your Message Here" />
             <Button onClick={(e) => handleSubmit(e)} sx={{ m: 3, width: '30%', alignSelf: 'center'}} variant="contained">Submit</Button>
