@@ -10,12 +10,13 @@ import {
     KeyboardDateTimePicker
 } from '@material-ui/pickers'
 
-const DatePicker = () => {
+const DatePicker = ({passDate}) => {
     const [selectedDate, setSelectedDate] = useState(new Date())
 
     const handleDateChange = (date) => {
-        console.log('Selected Date: ' + date)
         setSelectedDate(date)
+        passDate(selectedDate)
+
     }
 
     return (
