@@ -24,9 +24,14 @@ const setTimeouts = (data) => {
 
 const scheduleAtTime = (time, msg) => {
   const eta_ms = new Date(time) - Date.now()
-  setTimeout(() => {
-    console.log(time + ': ' + msg)
-  }, eta_ms)
+  if (eta_ms < 0) {
+    console.log('Old notification: ' + time + ' -> ' + msg)
+    // delete message?
+  } else {
+    setTimeout(() => {
+      console.log(time + ': ' + msg)
+    }, eta_ms)
+  }
 }
 
 module.exports = { scheduleNotifications }
