@@ -1,21 +1,20 @@
 const { Client, Intents } = require('discord.js')
 
-const { token } = require('./auth.json')
 const { channelID } = require('./config.json')
 
 const { scheduleNotifications } = require('./schedule')
 scheduleNotifications()
 
 client = new Client()
-client.login(token)
+client.login(process.env.TOKEN)
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}`)
-  const channel = client.channels.cache.get(channelID)
-  channel.send('hello')
+  // const channel = client.channels.cache.get(channelID)
+  // channel.send('hello')
 })
 
-const sendMessage = () => {
+const sendMessage = (msg) => {
   const channel = client.channels.cache.get(channelID)
   channel.send('hello again')
 }
