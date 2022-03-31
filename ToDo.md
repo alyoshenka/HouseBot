@@ -1,0 +1,3 @@
+- delete message after time has passed
+- allow deletion of messages from webpage
+- successful notification response

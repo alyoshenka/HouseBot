@@ -1,22 +1,28 @@
-import React from "react";
-import { useState } from "react";
+import React from 'react'
+import { useState } from 'react'
 
 // https://www.freakyjolly.com/react-material-ui-datepicker-and-timepicker-tutorial/
 
-import "date-fns";
-import DateFnsUtils from "@date-io/date-fns";
+import 'date-fns'
+import DateFnsUtils from '@date-io/date-fns'
 import {
   MuiPickersUtilsProvider,
   KeyboardDateTimePicker,
-} from "@material-ui/pickers";
+} from '@material-ui/pickers'
 
 const DatePicker = ({ passDate }) => {
-  const [selectedDate, setSelectedDate] = useState(new Date());
+  const [selectedDate, setSelectedDate] = useState(new Date())
 
   const handleDateChange = (date) => {
-    setSelectedDate(date);
-    passDate(selectedDate);
-  };
+    if (!date) {
+      console.log('No date provided')
+      return
+    }
+    console.log('1) New date: ' + date)
+    setSelectedDate(date)
+    passDate(date)
+    console.log('4) New date: ' + date)
+  }
 
   return (
     <MuiPickersUtilsProvider utils={DateFnsUtils}>
@@ -27,7 +33,7 @@ const DatePicker = ({ passDate }) => {
         disablePast="true"
       />
     </MuiPickersUtilsProvider>
-  );
-};
+  )
+}
 
-export default DatePicker;
+export default DatePicker
