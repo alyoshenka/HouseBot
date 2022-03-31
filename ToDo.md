@@ -1,0 +1,4 @@
+- unit testing
+- better UI
+- delete old messages
+- allow deletion of messages from webpage
