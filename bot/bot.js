@@ -1,31 +1,30 @@
-const { Client, Intents } = require("discord.js");
+const { Client, Intents } = require('discord.js')
 
-const { token } = require("./auth.json");
-const { channelID } = require("./config.json");
+const { token } = require('./auth.json')
+const { channelID } = require('./config.json')
 
-const { getData } = require("./data");
+const { scheduleNotifications } = require('./schedule')
+scheduleNotifications()
 
-const data = getData();
+client = new Client()
+client.login(token)
 
-client = new Client();
-client.login(token);
-
-client.on("ready", () => {
-  console.log(`Logged in as ${client.user.tag}`);
-  const channel = client.channels.cache.get(channelID);
-  channel.send("hello");
-});
+client.on('ready', () => {
+  console.log(`Logged in as ${client.user.tag}`)
+  const channel = client.channels.cache.get(channelID)
+  channel.send('hello')
+})
 
 const sendMessage = () => {
-  const channel = client.channels.cache.get(channelID);
-  channel.send("hello again");
-};
+  const channel = client.channels.cache.get(channelID)
+  channel.send('hello again')
+}
 
 const sleep = (ms) => {
-  new Promise((r) => setTimeout(r, ms)).then(sendMessage);
-};
+  new Promise((r) => setTimeout(r, ms)).then(sendMessage)
+}
 
-sleep(2000);
+sleep(2000)
 
 // settimeout
 
