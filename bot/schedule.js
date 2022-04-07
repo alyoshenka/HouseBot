@@ -18,20 +18,28 @@ const setTimeouts = (data) => {
   }
 
   data.map((element) => {
-    scheduleAtTime(element.date, element.message)
+    scheduleAtTime(element.date, element.message, element.id)
   })
 }
 
-const scheduleAtTime = (time, msg) => {
+const scheduleAtTime = (time, msg, id) => {
   const eta_ms = new Date(time) - Date.now()
   if (eta_ms < 0) {
-    console.log('Old notification: ' + time + ' -> ' + msg)
-    // delete message?
+    deleteNotification(id)
   } else {
     setTimeout(() => {
       console.log(time + ': ' + msg)
     }, eta_ms)
   }
+}
+
+const deleteNotification = (id) => {
+  axios
+    .delete('http://localhost:8000/notifications/', { params: { _id: id } })
+    .then(console.log('An old request was found, and deleted'))
+    .catch((err) => {
+      console.log(err)
+    })
 }
 
 module.exports = { scheduleNotifications }
