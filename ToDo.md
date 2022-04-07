@@ -1,4 +1,6 @@
 - unit testing
 - better UI
-- delete old messages
+- ~~delete old messages~~
 - allow deletion of messages from webpage
+  - change display to use a `<Table />`
+- reload page on notification submission

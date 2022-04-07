@@ -18,7 +18,7 @@ const setTimeouts = (data) => {
   }
 
   data.map((element) => {
-    scheduleAtTime(element.date, element.message, element.id)
+    scheduleAtTime(element.date, element.message, element.id) // todo: {object}? which is the best way??
   })
 }
 
