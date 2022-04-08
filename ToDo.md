@@ -4,8 +4,8 @@
 - allow deletion of messages from webpage
   1. ~change display to use a `<Table />`~
   1. ~highlight on hover~
-  1. delete icon
-    1. clicking deletes item
+  1. ~delete icon~
+    1. ~clicking deletes item~
     1. page reload (see below)
 - reload page on notification submission
   - useEffect??
