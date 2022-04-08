@@ -1,21 +1,21 @@
-import React from "react";
+import React from 'react'
 import {
   AppBar,
   Toolbar,
   Typography,
   IconButton,
   makeStyles,
-} from "@material-ui/core";
-import { Menu } from "@material-ui/icons";
+} from '@material-ui/core'
+import { Menu } from '@material-ui/icons'
 
 const useStyles = makeStyles({
   header: {
-    backgroundColor: "navy",
+    backgroundColor: 'navy',
   },
-});
+})
 
 const NavBar = () => {
-  const classes = useStyles();
+  const classes = useStyles()
 
   return (
     <AppBar
@@ -31,7 +31,7 @@ const NavBar = () => {
         <Typography variant="">Hello</Typography>
       </Toolbar>
     </AppBar>
-  );
-};
+  )
+}
 
-export default NavBar;
+export default NavBar
