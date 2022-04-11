@@ -1,36 +1,9 @@
-import React, { useState, useEffect } from 'react'
-import axios from 'axios'
 import Box from '@mui/material/Box/Box'
 import Typography from '@mui/material/Typography'
 
-import NotificationItem from './NotificationItem'
-
 import TableTest from './TableTest'
 
-const NotificationDisplay = () => {
-  const [notifications, setNotifications] = useState(null)
-  const [loading, setLoading] = useState(true)
-  const [errors, setErrors] = useState(false)
-
-  useEffect(() => {
-    axios
-      .get('http://localhost:8000/notifications')
-      .then((response) => {
-        const data = response.data
-        setNotifications(data)
-        setLoading(false)
-      })
-      .catch((err) => {
-        console.log(err)
-        setErrors(err)
-      })
-  }, [])
-
-  // item, index, items
-  const mapItems = (item, index, items) => {
-    return <NotificationItem key={index} data={item} />
-  }
-
+const NotificationDisplay = ({ notifications, errors, loading }) => {
   if (errors) {
     return <span>Errors!</span>
   } else if (loading) {

@@ -10,7 +10,7 @@ import TextField from '@mui/material/TextField'
 
 import DatePicker from './DatePicker'
 
-const NotificationSelector = () => {
+const NotificationSelector = ({ update }) => {
   const [message, setMessage] = useState(null)
   const [date, setDate] = useState(new Date())
 
@@ -39,6 +39,8 @@ const NotificationSelector = () => {
       .post('http://localhost:8000/notifications', send)
       .then(() => {
         console.log('Notification sent')
+        // tell parent to update
+        update(true)
       })
       .catch((err) => {
         console.log(err)
