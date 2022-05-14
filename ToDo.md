@@ -19,3 +19,4 @@
 - export `axios` requests into one file
 - save website url in configuration file
 - better date display
+- make UI not stretch

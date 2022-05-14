@@ -36,7 +36,7 @@ const deleteNotification = (id) => {
     })
 }
 
-const TableTest = ({ notifs }) => {
+const TableTest = ({ notifs, update }) => {
   const classes = useStyles()
 
   return (
@@ -59,6 +59,7 @@ const TableTest = ({ notifs }) => {
                   variant="outlined"
                   onClick={() => {
                     deleteNotification(notif.id)
+                    update(true)
                   }}
                 >
                   <DeleteIcon className={classes.delete} />

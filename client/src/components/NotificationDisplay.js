@@ -3,7 +3,7 @@ import Typography from '@mui/material/Typography'
 
 import TableTest from './TableTest'
 
-const NotificationDisplay = ({ notifications, errors, loading }) => {
+const NotificationDisplay = ({ notifications, errors, loading, update }) => {
   if (errors) {
     return <span>Errors!</span>
   } else if (loading) {
@@ -12,7 +12,7 @@ const NotificationDisplay = ({ notifications, errors, loading }) => {
     return (
       <Box>
         <Typography variant="h5">Saved Notifications</Typography>
-        <TableTest notifs={notifications} />
+        <TableTest notifs={notifications} update={update} />
       </Box>
     )
   }
