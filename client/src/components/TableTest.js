@@ -39,6 +39,9 @@ const deleteNotification = (id) => {
 const TableTest = ({ notifs, update }) => {
   const classes = useStyles()
 
+  if (!notifs) {
+    return <span>Loading notification data...</span>
+  }
   return (
     <TableContainer>
       <Table>

@@ -21,7 +21,7 @@ const Notifications = () => {
         setLoading(false)
       })
       .catch((err) => {
-        console.log(err)
+        console.log('Error @ Notification', typeof err)
         setErrors(err)
       })
     setShouldUpdate(false)
